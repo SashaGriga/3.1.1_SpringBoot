@@ -30,9 +30,9 @@ public class UserController {
     }
 
     @GetMapping("/admin")
-    public  String showAllUser(Model model) {
+    public String showAllUser(Model model) {
         List<User> allUs = userService.getAllUsers();
-        model.addAttribute("allUs",allUs);
+        model.addAttribute("allUs", allUs);
         return "admin";
     }
 
@@ -58,7 +58,7 @@ public class UserController {
 
     @PostMapping("/userUpdate")
     public String updateUser(@ModelAttribute("user") User user,
-                             @RequestParam(value = "roles", required = false)String [] roleList) {
+                             @RequestParam(value = "roles", required = false) String[] roleList) {
         userService.updateUserAndRoles(user, roleList);
         return "redirect:/admin";
     }
